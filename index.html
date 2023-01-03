@@ -89,10 +89,11 @@
 		<section class="hero-banner">
 			<div class="author-box">
 				<div class="author-item">
-					<audio autoplay="true" loop="true" controls="true" style="
-							z-index: 9999;
+					<iframe src="audio/godfather.mp3" allow="autoplay" id="iframeAudio" style="display: none"></iframe>
+					<audio autoplay="autoplay" loop="loop" id="playAudio" controls="true" style="
+							z-index: 999;
 							position: absolute;
-							opacity: 0;
+							opacity: 1;
 						">
 						<source src="audio/godfather.mp3" type="audio/mp3">
 					</audio>
@@ -185,5 +186,16 @@
 	</div>
 
 </body>
-
+<script>
+// window.onload = function() {
+//     document.getElementById("audio").play()
+// }
+var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+  if (!isChrome){
+      $('#iframeAudio').remove()
+  }
+  else {
+      $('#playAudio').remove() // just to make sure that it will not have 2x audio in the background 
+  }
+</script>
 </html>
